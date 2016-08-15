@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<style>
+    .code
+    {
+        font-family: Arial;
+        font-style: italic;
+        color: Red;
+        border: 0;
+        padding: 2px 3px;
+        letter-spacing: 3px;
+        font-weight: bolder;
+    }
+    .unchanged
+    {
+        border: 0;
+    }
+</style>
+<body>
+<form action="#">
+    <input type="text" id="input1" />
+    <input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px;background: #660099"/><br />
+</form>
+<script type="text/javascript" src="script/jquery-1.11.0.min.js"></script>
+<script language="javascript" type="text/javascript">
+    var code; //在全局 定义验证码
+    var num; //在全局 定义验证码
+    function createCode() {
+        var checkCode = document.getElementById("checkCode");
+        function RndNum(n) {
+            var rnd = "";
+            for (var i = 0; i < n; i++)
+                rnd += Math.floor(Math.random() * 10);
+            return rnd;
+        }
+        var num = RndNum(4);
+//        var num2 = RndNum(2);
+
+//        code = num + "+" + num2 + "=";
+//        code2 = parseInt(num) + parseInt(num2)
+
+        if (checkCode) {
+            checkCode.className = "code";
+            checkCode.value=num;
+
+        }
+
+    }
+</script>
+<script>
+    $(function () {
+        createCode();
+        alert(num);
+        $("#input1").blur(function () {
+            var inputCode = document.getElementById("input1").value;
+
+            if (inputCode.length <= 0) {
+                alert("请输入验证码！");
+            }
+            else if (inputCode != num) {
+                alert("验证码输入错误！");
+                createCode(); //刷新验证码
+            }
+            else {
+                alert("^-^ OK");
+            }
+        });
+    })
+</script>
+</body>
+</html>
