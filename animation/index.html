@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3-animation</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            border: none;
+        }
+        div{
+            width: 200px;
+            height:200px;
+            border: 1px solid #000;;
+        }
+        .background-position-1{
+            background-image:-webkit-linear-gradient(-45deg, transparent 25%, black 25%, black 50%, transparent 50%, transparent 75%, black 75%, black);
+            background-size:50px 50px;
+            animation:background-position-1 1s ease 0s alternate none infinite;
+        }
+        @keyframes background-position-1 {
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="background-position-1"></div>
+</body>
+</html>
