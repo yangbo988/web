@@ -12,7 +12,10 @@
         div{
             width: 200px;
             height:200px;
-            border: 1px solid #000;;
+            border: 1px solid #000;
+            float:left;
+            margin-top: 20px;;
+            margin-right: 20px;;
         }
         .background-position-1{
             background-image:-webkit-linear-gradient(-45deg, transparent 25%, black 25%, black 50%, transparent 50%, transparent 75%, black 75%, black);
@@ -27,10 +30,45 @@
                 background-position: 100% 100%;
             }
         }
+        .background-position-2 {
+            background-color: #E04332;
+            background-repeat: repeat-x;
+            background-size: 24px 300px; background-image: linear-gradient(-45deg, slategray 25%, transparent 25%), linear-gradient(45deg, transparent 75%, slategray 75%), linear-gradient(45deg, slategray 25%, transparent 25%), linear-gradient(-45deg, transparent 75%, slategray 75%);
+            animation:1s ease 0s alternate none infinite background-position-2;
+        }
+        @keyframes background-position-2{
+            from{ background-position:3px 0, 3px 0, 15px -150px, 15px -150px;}
+            to{ background-position:3px -70px, 3px -70px, 15px -80px, 15px -80px;}
+        }
+        .background-size{
+            background-image: repeating-radial-gradient(transparent, transparent 9px,black 11px,black 20px);
+            background-position:center;
+            -webkit-animation:background-size 1s ease 0s alternate infinite;
+        }
+        @-webkit-keyframes background-size {
+            from{background-size:5px 5px}to{background-size:150px 150px;}
+        }
+        .border-radius-1{
+            background-color:#666;
+            -webkit-animation: border-radius-1 1s ease 0s alternate infinite;
+        }
+        @-webkit-keyframes border-radius-1 {
+            from{border-radius:0}to{border-radius:50%}
+        }
+        .border-radius-2{
+            background-color:#666;
+            -webkit-animation:border-radius-2 1s ease 0s alternate infinite;
+        }
+        @-webkit-keyframes border-radius-2 {
+            from{ border-radius:0 100%}to{ border-radius:100% 0}
+        }
     </style>
 </head>
 <body>
 <div class="background-position-1"></div>
-<div></div>
+<div class="background-position-2"></div>
+<div class="background-size"></div>
+<div class="border-radius-1"></div>
+<div class="border-radius-2"></div>
 </body>
 </html>
